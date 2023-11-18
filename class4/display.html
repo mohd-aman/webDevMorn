@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <style>
+        p{
+            background-color: yellow;
+            height: 100px;
+            width: 100px;
+            display: inline;
+        }
+        span{
+            background-color: aqua;
+            height: 100px;
+            width: 100px;
+            display: block;
+        }
+        img{
+            height: 100px;
+            width: 100px;
+            /* display: none; */
+        }
+        a{
+            height: 100px;
+            width: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <p>I am para</p>
+    <p>I am another para</p>
+    <span>I am span</span> 
+    <span>I am another span</span>
+    <img src="data:image/png;base64,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" alt="">
+    <a href="">Link to nothing</a>
+</body>
+</html>
