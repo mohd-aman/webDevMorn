@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .container{
+            /* background-color: yellow; */
+            /* viewport height  */
+            height: 100vh; 
+            /* viewport width  */
+            width: 100vw;
+            display: grid;
+            grid-template-columns: 100px 100px 100px 100px 100px;
+            /* grid-template-columns: repeat(20,100px); */
+            /* grid-template-columns: repeat(5,1fr); */
+            /* grid-template-columns: 1fr 2fr 1fr 3fr; */
+            grid-template-rows: 100px 100px 100px 100px 100px;
+            /* grid-template-rows: repeat(5,1fr); */
+
+            /* short hand for above two  property */
+            /* grid-template: repeat(5,1fr)/repeat(5,1fr); */
+            /* row-gap: 50px;
+            column-gap: 10px; */
+            /* gap:50px */
+
+            justify-content: center;
+            align-content: center;
+
+            grid-auto-columns: 100px;
+            grid-auto-rows: 0px;
+        }
+        .item-first{
+            background-color: aqua;
+            grid-row-start: 3;
+            grid-row-end: 5; 
+            grid-column-start: 2;
+            grid-column-end: 8;
+            /* justify-self: center;
+            align-self: center; */
+            /* short hand for above two property  */
+            /* first value is for align self and second for justify self  */
+            /* place-self: end center; */
+        }
+        .item-second{
+            background-color: orange;
+            /* short hand for grid-row-start and grid-row-end  */
+            grid-row: 1/6;
+            /* short hand for grid-column-start and grid-column-end  */
+            grid-column: 5/6;
+            /* short hand for grid-row and grid-column  */
+            /* the values goes like first is row start second is col start third is row end fourth is col end */
+            grid-area: 1/5/6/6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item-first">First item of grid</div>
+        <!-- <div class="item-second"></div> -->
+    </div>
+</body>
+</html>

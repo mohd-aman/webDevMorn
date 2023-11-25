@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page layout</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            display: grid;
+            grid-template-rows: 1fr 5fr 1fr;
+            grid-template-columns: 1fr 4fr 1fr 1fr;
+            grid-template-areas:
+            "head head head head"
+            "nav  main side side2"
+            "nav  foot foot foot"
+        }
+        header,nav,footer,main,aside,div{
+            border: 1px solid white;
+        }
+        header{
+            /* grid-column-start: 1;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            background-color: aqua; */
+            grid-area: head;
+        }
+        nav{
+            /* grid-row-start: 2;
+            grid-row-end: 4;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            background-color: orange; */
+            grid-area: nav;
+        }
+        main{
+            /* grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            background-color: yellow; */
+            grid-area: main;
+        }
+        aside{
+            /* grid-row-start:2 ;
+            grid-row-end:3 ;
+            grid-column-start:3 ;
+            grid-column-end:4 ;
+            background-color:red; */
+            grid-area: side;
+        }
+        div{
+            /* grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 4;
+            grid-column-end: 5;
+            background-color: green; */
+            grid-area: side2;
+        }
+        footer{
+            /* grid-area: 3/2/4/5;
+            background-color: violet; */
+            grid-area: foot;
+        }
+        @media screen and (max-width: 800px){
+            .container{
+                background-color: yellow;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+        <nav></nav>
+        <main></main>
+        <aside></aside>
+        <div></div>
+        <footer></footer>
+    </div>
+</body>
+</html>
