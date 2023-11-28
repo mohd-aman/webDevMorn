@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* select h1 elements having class one and id the-one  */
+        h1.one#the-one{
+            color: black;
+        }
+
+        h1#the-one{
+            color: teal;
+        }
+
+        #the-one{
+            color: orange;
+        }
+        #the-one{
+            color: yellow;
+        }
+
+        /* select h1 elements having class one and should be descendent of body  */
+        body h1.one{
+            color: violet;
+        }
+
+        /* select h1 elements having class one  */
+        h1.one{  
+            color: tomato !important;
+        }
+        h1.one{
+            color: springgreen !important;
+        }
+
+        /* select elements having class one  */
+        .one{
+            color: grey !important;
+        }
+        .one{
+            color: aqua !important;
+        }
+        .one{
+            color: tan !important;
+        }
+
+        h1{
+            color: red;
+        }
+        h1{
+            color: green;
+        }
+
+        /* specificity -> priority + specific */
+
+    </style>
+</head>
+<body>
+    <h1 class="one" id="the-one" style="color:deeppink">Hello world</h1>
+</body>
+</html>
