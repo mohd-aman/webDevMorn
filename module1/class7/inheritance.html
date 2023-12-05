@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+    <style>
+        section{
+            background-color: yellow;
+            color: green;
+            font-size: 20px;
+            border: 2px solid black;
+            /* display: inline-block; */
+        }
+        div{
+            background-color: grey;
+            /* it inherit if it can be inherited  */
+            border: inherit;
+            margin: 10px;
+            /* initial will set the property to default which css provide
+                that's why it is called initial. */
+            /* display: initial; */
+
+
+            /* unset inherit if the property can be inherited otherwise
+            it will set to it initial  */
+            /* display: unset; */
+            color: unset;
+        }
+        p{
+            background-color: brown;
+            display: inherit;
+            display: initial;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>I am div</div>
+        <p>I am para</p>
+    </section>
+    <button>Button</button>
+</body>
+</html>
