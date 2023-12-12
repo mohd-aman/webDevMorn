@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>I am heading</h1>
+    </div>
+    <div>
+        <h1 class="one">I am another heading</h1>
+        <p>I am a para</p>
+    </div>
+    <h4>I am some other tag</h4>
+    <h5>I am h5. Delete me</h5>
+    <!-- <script src="./script.js"></script> -->
+    <script>
+
+        //READ
+        var pElement = document.querySelector('p');
+        console.log(pElement)
+        var h1Element = document.querySelector('.one');
+        console.log(h1Element);
+        var h1Text = h1Element.innerText;
+        console.log(h1Text);
+
+        var allH1Element = document.querySelectorAll('h1');
+        console.log(allH1Element);
+
+        //WRITE
+        var h3Element = document.createElement('h3');
+        h3Element.innerText = "I am h3"
+        console.log(h3Element);
+        var bodyElement = document.querySelector('body');
+        bodyElement.appendChild(h3Element);
+
+        //UPDATE
+        var h4Element = document.querySelector('h4');
+        console.log(h4Element);
+        h4Element.innerText = "I am h4"
+
+        //DELETE
+        var h5Element = document.querySelector('h5');
+        h5Element.remove();
+    </script>
+</body>
+</html>
