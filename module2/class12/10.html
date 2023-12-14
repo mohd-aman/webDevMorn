@@ -12,7 +12,28 @@
     </div>
 
     <script>
-      //    Q Create a button that is destroyed by clicking on it but two new buttons are created in it's place.
+      //    Q Create a button that is destroyed by clicking on it but
+      //        two new buttons are created in it's place. and newly created button 
+      // should have the same functionality
+      let div = document.querySelector("#doubleHolder")
+
+      window.addEventListener("click",function(e){
+        if(e.target.classList.contains('double')){
+          // console.log("btn is clicked");
+          e.target.remove();
+          let btn1 = document.createElement('button');
+          btn1.innerText = "double";
+          btn1.className = 'double'
+          div.appendChild(btn1);
+
+          let btn2 = document.createElement('button');
+          btn2.innerText = "double";
+          btn2.className = 'double'
+          div.appendChild(btn2);
+
+        }
+      })
+
     </script>
   </body>
 </html>
