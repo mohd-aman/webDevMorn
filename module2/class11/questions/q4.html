@@ -58,7 +58,8 @@
       // Also changes the data-color attribute to "used"
 
       let card = document.querySelector('.card');
-      card.addEventListener("dblclick",function(e){
+      card.addEventListener("click",function(e){
+        console.log(e);
         let color = card.getAttribute('data-color');
         console.log(color);
         card.classList.add(color);
