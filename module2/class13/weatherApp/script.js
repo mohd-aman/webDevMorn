@@ -1,6 +1,7 @@
 //homework 
 // 1. make request on click of button.
 // 2. make req with the value we have in input
+// 2. try to replace then and catch with asyn await.
 
 // let btn = document.querySelector("button");
 let form = document.querySelector("form");
