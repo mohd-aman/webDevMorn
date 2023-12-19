@@ -1,0 +1,23 @@
+[
+    {
+        "name":"Farm 1",
+        "products":["Eggs","Milk","Vegs"],
+        "registrationNo":543564,
+        "EmployeeCount": 70,
+        "isOperating":true
+    },
+    {
+        "name":"Farm 2",
+        "products":["Matar","Milk","Vegs"],
+        "registrationNo":3564,
+        "EmployeeCount": 40,
+        "isOperating":false
+    },
+    {
+        "name":"Farm 3",
+        "products":["Eggs","Vegs"],
+        "registrationNo":564,
+        "EmployeeCount": 50,
+        "isOperating":true
+    }
+]
