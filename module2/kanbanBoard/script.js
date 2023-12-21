@@ -67,4 +67,10 @@ function createTicket(){
     ticketCont.innerHTML = '<div class="ticket-color"></div> <div class="ticket-id">#5gf832</div><div class="ticket-area">Some task</div>'
     // console.log(ticketCont);
     mainCont.appendChild(ticketCont);
+
+    //handle delete ticket
+    ticketCont.addEventListener('click',function(){
+        if(isDeleteBtnActive)
+            ticketCont.remove();
+    })
 }
