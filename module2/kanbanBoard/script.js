@@ -11,6 +11,9 @@ let isModalHidden = true;
 let deleteBtn = document.querySelector(".remove-btn") // select the remove button
 let isDeleteBtnActive = false; // maintaining state for delete btn
 
+let textArea = document.querySelector('.textarea-cont'); // select the text area
+let mainCont = document.querySelector('.main-cont');
+
 addBtn.addEventListener('click',function(){
     if(isModalHidden){
         modalCont.style.display = "flex" // show the modal
@@ -33,3 +36,35 @@ deleteBtn.addEventListener('click',function(){
     }
     
 })
+
+textArea.addEventListener('keydown',function(e){
+    console.log(e);
+    let key = e.key;
+    // console.log(key);
+    if(key == "Enter"){
+        //generate a ticket
+        createTicket();
+        //hide the modal
+        modalCont.style.display = 'none'
+        isModalHidden = true
+        //empty the textArea value;
+        textArea.value = ""
+    }
+})
+
+
+
+function createTicket(){
+    //crate the below structure with js and add it to main container
+    // <div class="ticket-cont">
+    //     <div class="ticket-color"></div>
+    //     <div class="ticket-id">#5gf832</div>
+    //     <div class="ticket-area">Some task</div>
+    // </div>
+
+    let ticketCont = document.createElement('div'); //<div></div>
+    ticketCont.className = 'ticket-cont';// <div class="ticket-cont"></div>
+    ticketCont.innerHTML = '<div class="ticket-color"></div> <div class="ticket-id">#5gf832</div><div class="ticket-area">Some task</div>'
+    // console.log(ticketCont);
+    mainCont.appendChild(ticketCont);
+}
