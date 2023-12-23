@@ -41,12 +41,12 @@ deleteBtn.addEventListener('click',function(){
 })
 
 textArea.addEventListener('keydown',function(e){
-    console.log(e);
+    // console.log(e);
     let key = e.key;
     // console.log(key);
     if(key == "Enter"){
         //generate a ticket
-        console.log(textArea.value);
+        // console.log(textArea.value);
         createTicket(textArea.value);
         //hide the modal
         modalCont.style.display = 'none'
@@ -80,5 +80,21 @@ function createTicket(task){
     ticketCont.addEventListener('click',function(){
         if(isDeleteBtnActive)
             ticketCont.remove();
+    })
+
+    //handle lock unlock ticket
+    let lockUnlockBtn = ticketCont.querySelector('.lock-unlock-btn i');
+    let ticketArea = ticketCont.querySelector('.ticket-area');
+    // console.log(lockUnlockBtn)
+    lockUnlockBtn.addEventListener('click',function(){
+        if(lockUnlockBtn.classList.contains('fa-lock')){
+            lockUnlockBtn.classList.remove('fa-lock');
+            lockUnlockBtn.classList.add('fa-lock-open');
+            ticketArea.setAttribute('contenteditable','true');
+        }else{
+            lockUnlockBtn.classList.remove('fa-lock-open');
+            lockUnlockBtn.classList.add('fa-lock');
+            ticketArea.setAttribute('contenteditable','false')
+        }
     })
 }

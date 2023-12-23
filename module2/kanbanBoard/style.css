@@ -90,6 +90,7 @@
     padding: 5px;
     height: calc(10rem - 1rem - 1.5rem);
     font-size: 1.25rem;
+    outline: none;
 }
 
 .modal-cont{
