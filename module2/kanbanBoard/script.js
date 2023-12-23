@@ -14,6 +14,23 @@ let isDeleteBtnActive = false; // maintaining state for delete btn
 let textArea = document.querySelector('.textarea-cont'); // select the text area
 let mainCont = document.querySelector('.main-cont');
 
+let allPriorityColor = document.querySelectorAll('.priority-color');
+let priorityColor = 'red';
+for(let i=0;i<allPriorityColor.length;i++){
+    allPriorityColor[i].addEventListener('click',function(){
+        // console.log(allPriorityColor[i].classList[1]);
+        
+        //before we add border, let's remove border from all
+        for(let j=0;j<allPriorityColor.length;j++){
+            allPriorityColor[j].classList.remove('active');
+        }
+
+        allPriorityColor[i].classList.add('active'); // add border
+        //update the priority Color
+        priorityColor = allPriorityColor[i].classList[1];
+    })
+}
+
 // Instantiate
 var uid = new ShortUniqueId();
 
@@ -67,8 +84,8 @@ function createTicket(task){
     let id = uid.rnd();
     let ticketCont = document.createElement('div'); //<div></div>
     ticketCont.className = 'ticket-cont';// <div class="ticket-cont"></div>
-    ticketCont.innerHTML = `<div class="ticket-color">
-                            </div> <div class="ticket-id">#${id}</div>
+    ticketCont.innerHTML = `<div class="ticket-color ${priorityColor}"></div> 
+                            <div class="ticket-id">#${id}</div>
                             <div class="ticket-area">${task}</div>
                             <div class='lock-unlock-btn'>
                                 <i class="fa-solid fa-lock"></i>

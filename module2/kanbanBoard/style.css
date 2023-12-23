@@ -86,7 +86,6 @@
 
 .ticket-color{
     height: 1rem;
-    background-color: #E9D5DA;
 }
 
 .ticket-id{
@@ -130,7 +129,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background-color: aliceblue;
+    background-color: var(--bgColor);
 
 }
 
@@ -140,7 +139,7 @@
 }
 
 .active{
-    border: 5px solid yellow;
+    border: 5px solid #FFEA11;
 }
 
 .lock-unlock-btn{
