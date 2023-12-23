@@ -14,6 +14,9 @@ let isDeleteBtnActive = false; // maintaining state for delete btn
 let textArea = document.querySelector('.textarea-cont'); // select the text area
 let mainCont = document.querySelector('.main-cont');
 
+// Instantiate
+var uid = new ShortUniqueId();
+
 addBtn.addEventListener('click',function(){
     if(isModalHidden){
         modalCont.style.display = "flex" // show the modal
@@ -43,7 +46,8 @@ textArea.addEventListener('keydown',function(e){
     // console.log(key);
     if(key == "Enter"){
         //generate a ticket
-        createTicket();
+        console.log(textArea.value);
+        createTicket(textArea.value);
         //hide the modal
         modalCont.style.display = 'none'
         isModalHidden = true
@@ -53,18 +57,19 @@ textArea.addEventListener('keydown',function(e){
 })
 
 
-
-function createTicket(){
+function createTicket(task){
     //crate the below structure with js and add it to main container
     // <div class="ticket-cont">
     //     <div class="ticket-color"></div>
     //     <div class="ticket-id">#5gf832</div>
     //     <div class="ticket-area">Some task</div>
     // </div>
-
+    let id = uid.rnd();
     let ticketCont = document.createElement('div'); //<div></div>
     ticketCont.className = 'ticket-cont';// <div class="ticket-cont"></div>
-    ticketCont.innerHTML = '<div class="ticket-color"></div> <div class="ticket-id">#5gf832</div><div class="ticket-area">Some task</div>'
+    ticketCont.innerHTML = `<div class="ticket-color">
+                            </div> <div class="ticket-id">#${id}</div>
+                            <div class="ticket-area">${task}</div>`
     // console.log(ticketCont);
     mainCont.appendChild(ticketCont);
 
