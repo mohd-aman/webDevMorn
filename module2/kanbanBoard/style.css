@@ -72,6 +72,7 @@
     height: 10rem;
     width: 15rem;
     background-color: yellow;
+    position: relative;
 }
 
 .ticket-color{
@@ -130,4 +131,10 @@
 
 .active{
     border: 5px solid yellow;
+}
+
+.lock-unlock-btn{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }
