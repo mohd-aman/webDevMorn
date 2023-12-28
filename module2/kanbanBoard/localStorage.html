@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    
+    <script>
+        //store in localStorag. 
+        // localStorage.setItem("Name","Alex");
+        // localStorage.setItem("Age","25");
+        // localStorage.setItem("Task",'{id:35353,taskDetail:"some task",color:"red"}');
+        // localStorage.setItem("array",'[3,5,63,6,3,6]')
+        let taskObj = {name:"hello world", lang: "JS"};
+        //stringify method converts into string so that later it can be parsed.
+        let taskObjStr = JSON.stringify(taskObj);
+        localStorage.setItem("obj1",taskObjStr)
+        //access the values.
+        let name = localStorage.getItem("Name");
+        console.log(name);
+        let arrayStr = localStorage.getItem('array');
+        let array = JSON.parse(arrayStr);
+        console.log(array);
+        array.push(897);
+        console.log(array)
+        let objStr = localStorage.getItem("Task");
+        console.log(objStr);
+        // let obj = JSON.parse(objStr);
+        // console.log(obj)
+        let obj1Str = localStorage.getItem('obj1');
+        let obj = JSON.parse(obj1Str);
+        console.log(obj)
+    </script>
+</body>
+</html>

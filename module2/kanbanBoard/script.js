@@ -15,6 +15,18 @@ let textArea = document.querySelector('.textarea-cont'); // select the text area
 let mainCont = document.querySelector('.main-cont');
 let color = ['red','blue','green','pink'];
 
+//storing data of each ticket in the form of object
+let ticketArr = [];
+
+if(localStorage.getItem('TaskArr')){
+    let ticketArrStr = localStorage.getItem("TaskArr");
+    ticketArr = JSON.parse(ticketArrStr);
+    for(let i=0;i<ticketArr.length;i++){
+        let ticket = ticketArr[i];
+        createTicket(ticket.value,ticket.color,ticket.id);
+    }
+}
+
 let allPriorityColor = document.querySelectorAll('.priority-color');
 let priorityColor = 'red';
 for(let i=0;i<allPriorityColor.length;i++){
@@ -65,7 +77,7 @@ textArea.addEventListener('keydown',function(e){
     if(key == "Enter"){
         //generate a ticket
         // console.log(textArea.value);
-        createTicket(textArea.value);
+        createTicket(textArea.value,priorityColor);
         //hide the modal
         modalCont.style.display = 'none'
         isModalHidden = true
@@ -75,14 +87,20 @@ textArea.addEventListener('keydown',function(e){
 })
 
 
-function createTicket(task){
+function createTicket(task,priorityColor,ticketId){
     //crate the below structure with js and add it to main container
     // <div class="ticket-cont">
     //     <div class="ticket-color"></div>
     //     <div class="ticket-id">#5gf832</div>
     //     <div class="ticket-area">Some task</div>
     // </div>
-    let id = uid.rnd();
+    let id;
+    if(ticketId){ // id is there it means we are creating from localstorage.
+        id = ticketId
+    }else{ // else we are creating from UI. 
+        id = uid.rnd();
+    }
+     
     let ticketCont = document.createElement('div'); //<div></div>
     ticketCont.className = 'ticket-cont';// <div class="ticket-cont"></div>
     ticketCont.innerHTML = `<div class="ticket-color ${priorityColor}"></div> 
@@ -92,6 +110,13 @@ function createTicket(task){
                                 <i class="fa-solid fa-lock"></i>
                             </div>`
     // console.log(ticketCont);
+    if(!ticketId){ // only make changes in the array when ticketId is not passed. or 
+                    // we can say it is created with UI and not from the localStorage.
+        ticketArr.push({id:id,color:priorityColor,value:task});
+    // console.log(ticketArr);
+        let ticketArrStr = JSON.stringify(ticketArr);
+        localStorage.setItem("TaskArr",ticketArrStr);
+    }
     mainCont.appendChild(ticketCont);
 
     //handle delete ticket
