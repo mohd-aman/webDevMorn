@@ -1,0 +1,28 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sun</h1>
+    <script>
+    let arr = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    // on click of p show next day 
+// Output -> Sun , Mon , Tue , Wed , Thu , Fri , Sat , Sun , Mon , Tue , Wed 
+        let h1 = document.querySelector('h1');
+        let curInd = 0;
+        h1.addEventListener('click',function(){
+            // curInd++;
+            // if(curInd == arr.length){
+            //     curInd = 0;
+            // }
+            curInd = (curInd+1)%arr.length; // 0,1,2,3,4,5,6
+            h1.innerText = arr[curInd];
+        })
+    </script>
+</body>
+</html>

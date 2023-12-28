@@ -13,6 +13,7 @@ let isDeleteBtnActive = false; // maintaining state for delete btn
 
 let textArea = document.querySelector('.textarea-cont'); // select the text area
 let mainCont = document.querySelector('.main-cont');
+let color = ['red','blue','green','pink'];
 
 let allPriorityColor = document.querySelectorAll('.priority-color');
 let priorityColor = 'red';
@@ -113,5 +114,32 @@ function createTicket(task){
             lockUnlockBtn.classList.add('fa-lock');
             ticketArea.setAttribute('contenteditable','false')
         }
+    })
+
+    //handle Priority change or cyclic change of priority
+    let ticketColor = ticketCont.querySelector('.ticket-color');
+    ticketColor.addEventListener('click',function(){
+        // console.log(ticketColor);
+        // color = ['red','blue','green','pink'];
+        let currentColor = ticketColor.classList[1];
+        // currentColor = blue 
+        // console.log(currentColor);
+
+        // let idx;
+        // for(let i=0;i<color.length;i++){
+        //     if(currentColor == color[i]){
+        //         idx = i;
+        //         break;
+        //     }
+        // }
+        let idx = color.findIndex(function(col){
+            return col == currentColor;
+        })
+        let nextIdx = (idx+1)%color.length;
+        let nextColor = color[nextIdx];
+        // console.log(nextColor);
+        ticketColor.classList.remove(currentColor);
+        ticketColor.classList.add(nextColor)
+
     })
 }
