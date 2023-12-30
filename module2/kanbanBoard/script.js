@@ -114,15 +114,21 @@ function createTicket(task,priorityColor,ticketId){
                     // we can say it is created with UI and not from the localStorage.
         ticketArr.push({id:id,color:priorityColor,value:task});
     // console.log(ticketArr);
-        let ticketArrStr = JSON.stringify(ticketArr);
-        localStorage.setItem("TaskArr",ticketArrStr);
+        updateLocalStorage();
     }
     mainCont.appendChild(ticketCont);
 
     //handle delete ticket
     ticketCont.addEventListener('click',function(){
-        if(isDeleteBtnActive)
+        if(isDeleteBtnActive){
             ticketCont.remove();
+            let ticketIndex = ticketArr.findIndex(function(ticketObj){
+                return ticketObj.id == id;
+            })
+            ticketArr.splice(ticketIndex,1);
+            updateLocalStorage();
+            console.log(ticketArr);
+        }
     })
 
     //handle lock unlock ticket
@@ -139,6 +145,12 @@ function createTicket(task,priorityColor,ticketId){
             lockUnlockBtn.classList.add('fa-lock');
             ticketArea.setAttribute('contenteditable','false')
         }
+        let ticketIndex = ticketArr.findIndex(function(ticketObj){
+            return ticketObj.id == id;
+        })
+        ticketArr[ticketIndex].value = ticketArea.innerText;
+        updateLocalStorage();
+        // console.log(ticketArr);
     })
 
     //handle Priority change or cyclic change of priority
@@ -166,5 +178,17 @@ function createTicket(task,priorityColor,ticketId){
         ticketColor.classList.remove(currentColor);
         ticketColor.classList.add(nextColor)
 
+        let ticketIndex = ticketArr.findIndex(function(ticketObj){
+            return ticketObj.id == id;
+        })
+        ticketArr[ticketIndex].color = nextColor;
+        updateLocalStorage();
+
     })
+}
+
+
+function updateLocalStorage(){
+    let ticketArrStr = JSON.stringify(ticketArr);
+    localStorage.setItem("TaskArr",ticketArrStr);
 }
