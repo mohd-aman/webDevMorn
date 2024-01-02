@@ -1,0 +1,20 @@
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.star-container{
+    display: flex;
+    font-size: 2rem;
+    
+}
+.star{
+    cursor: pointer;
+}
+
+.active{
+    color: gold;
+}
