@@ -1,0 +1,24 @@
+.container{
+    padding: 1rem 0rem;
+}
+
+.comment-container{
+    border-left: 2px solid black;
+    padding-left: 1rem;
+    margin-left: 4rem;
+}
+
+.reply{
+    color: royalblue;
+    font-weight: 600;
+    margin-left: 2rem;
+    padding: 1rem;
+}
+
+.reply:hover{
+    cursor: pointer;
+}
+
+.comment-reply-container{
+    margin-left: 5rem;
+}
