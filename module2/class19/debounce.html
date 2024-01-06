@@ -6,13 +6,17 @@
     <title>Debounce</title>
 </head>
 <body>
-    <input type="text">
+    <input class="one" placeholder="debounce" type="text">
+    <input class="two" placeholder="throttle" type="text">
     <script>
-        let input = document.querySelector('input');
+        let input1 = document.querySelector('.one');
+        let input2 = document.querySelector('.two');
         let count = 1;
         let betterFxnDebounce = debounce(cb,1000);
-
-        input.addEventListener('keydown',betterFxnDebounce);
+        let betterFxnThrottle = throttle(cb,1000);
+        
+        input1.addEventListener('keydown',betterFxnDebounce);
+        input2.addEventListener('keydown',betterFxnThrottle);
 
         function cb(){
             console.log("Network call ", count)
@@ -24,6 +28,20 @@
             return function(){
                 clearTimeout(timer);
                 timer = setTimeout(cb,delay);
+            }
+        }
+
+        function throttle(cb,delay){
+            let flag = true;
+            return function(){
+                if(flag){
+                    cb();
+                    flag = false;
+                    setTimeout(function(){
+                        flag = true;
+                    },delay)
+                }
+
             }
         }
 
