@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout</title>
+</head>
+<body>
+    <button>Stop Timer</button>
+    <script>
+        let btn = document.querySelector('button');
+
+        let timer = setTimeout(function(){
+            console.log("Hello world after a certain delay")
+        },3000);
+
+        btn.addEventListener('click',function(){
+            clearTimeout(timer);
+        })
+
+    </script>
+</body>
+</html>

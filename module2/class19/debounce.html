@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounce</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+        let input = document.querySelector('input');
+        let count = 1;
+        let betterFxnDebounce = debounce(cb,1000);
+
+        input.addEventListener('keydown',betterFxnDebounce);
+
+        function cb(){
+            console.log("Network call ", count)
+            count++;
+        }
+
+        function debounce(cb,delay){
+            let timer;
+            return function(){
+                clearTimeout(timer);
+                timer = setTimeout(cb,delay);
+            }
+        }
+
+    </script>
+</body>
+</html>
