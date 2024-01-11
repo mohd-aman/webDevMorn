@@ -15,15 +15,15 @@ class Person{
     //     console.log("This class describe name, age and greeting for a person");
     // }
 
-    static compareAges(person1,person2){
-        if(person1.age>person2.age){
-            return `${person1.name} is older than ${person2.name}`
-        }else if(person2.age>person1.age){
-            return `${person2.name} is older than ${person1.name}`
-        }else{
-            return `Both are of same age`;
-        }
-    }
+    // static compareAges(person1,person2){
+    //     if(person1.age>person2.age){
+    //         return `${person1.name} is older than ${person2.name}`
+    //     }else if(person2.age>person1.age){
+    //         return `${person2.name} is older than ${person1.name}`
+    //     }else{
+    //         return `Both are of same age`;
+    //     }
+    // }
 }
 //calling an static method
 // Person.details();
@@ -43,15 +43,15 @@ class Teacher extends Student{
     }
 }
 
-let teacher1 = new Teacher("Shambhu","No idea","Academy Dev","100");
-console.log(teacher1);
-let teacher2 = new Teacher("Tharun","no idea","DSA","200");
-console.log(teacher2);
+// let teacher1 = new Teacher("Shambhu","No idea","Academy Dev","100");
+// console.log(teacher1);
+// let teacher2 = new Teacher("Tharun","no idea","DSA","200");
+// console.log(teacher2);
 
-let student1 = new Student("Avinash","No idea","Academy Web");
-console.log(student1);
-let student2 = new Student("Abraham","node","Academy DSA");
-console.log(student2);
+// let student1 = new Student("Avinash","No idea","Academy Web");
+// console.log(student1);
+// let student2 = new Student("Abraham","node","Academy DSA");
+// console.log(student2);
 
 let person1 = new Person("Aman",25);
 console.log(person1);
@@ -60,7 +60,13 @@ console.log(person2);
 
 person2.greet();
 person1.greet();
-teacher1.greet();
-student1.greet();
+// teacher1.greet();
+// student1.greet();
 
-console.log(Person.compareAges(person1,person2));
+// console.log(Person.compareAges(person1,person2));
+
+
+
+//HW ->      create a constructor function for creating objects for laptops
+        //   which should have four properties - name , color , RAM , ScreenSize 
+        //   and a method which prints all this value
