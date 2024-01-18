@@ -35,3 +35,7 @@ setTimeout(function cb2(){
 },0);
 
 console.log("4");
+
+
+//Q. print hello world inifinite time without blocking 
+//the call stack or lagging browser
