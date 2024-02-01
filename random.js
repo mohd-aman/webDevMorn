@@ -18,3 +18,7 @@ let promise = processArray(data)
 promise.then(function(data){
     console.log(data);
 })
+
+
+
+// js contest -> classes to cover -> 8,9,10 and from 20 to 29.
