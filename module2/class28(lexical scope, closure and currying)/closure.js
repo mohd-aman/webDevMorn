@@ -10,4 +10,10 @@ let innerFxn = parent();
 // innerFxn = function child(){
 //     console.log(a);
 // }
-innerFxn();
+// innerFxn();
+
+function anotherfx(){
+    var a = 35;
+    innerFxn();
+}
+anotherfx();
