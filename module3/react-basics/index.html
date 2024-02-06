@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        
+    </div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script>
+        // in DOM(Vanilla JS) 
+        // let h1Element = document.createElement('h1');
+        // h1Element.innerText = "Hello, World";
+        // console.log(h1Element);
+        // let rootElement = document.querySelector('#root');
+        // rootElement.appendChild(h1Element);
+
+    //     <div class="parent">
+    //        <h1 class="greeting" id="one">Hello world</h1>
+    //        <h2 class="question" id="two">How are you</h2>
+    //     </div>
+
+        //in react
+        let h1 = React.createElement('h1',{},"Hello, World");
+        console.log(h1);
+        let root = ReactDOM.createRoot(document.querySelector("#root"));
+        console.log(root);
+        root.render(h1);
+    </script>
+</body>
+</html>

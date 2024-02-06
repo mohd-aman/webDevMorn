@@ -18,3 +18,6 @@ myPromise.catch(function(error){ // failure
     console.log(error);
 })
 
+myPromise.finally(function(){
+    console.log("Promise no longer in pending state")
+})
