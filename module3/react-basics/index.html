@@ -6,9 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>I am heading without react in pure html</h1>
     <div id="root">
         
     </div>
+    <h1>I am another heading also without react, react is not used here</h1>
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script>
@@ -25,11 +27,15 @@
     //     </div>
 
         //in react
-        let h1 = React.createElement('h1',{},"Hello, World");
+        let h1 = React.createElement('h1',{id:"one",className:'greeting'},"Hello, World");
         console.log(h1);
+        let h2 = React.createElement('h2',{id:"two",className:'question'},"How are you");
+        console.log(h2);
+        let div = React.createElement('div',{className:"parent"},[h1,h2]);
+        console.log(div);
         let root = ReactDOM.createRoot(document.querySelector("#root"));
         console.log(root);
-        root.render(h1);
+        root.render(div);
     </script>
 </body>
 </html>
