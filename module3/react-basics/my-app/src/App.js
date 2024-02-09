@@ -1,12 +1,27 @@
 import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import UserProfile from './components/UserProfile';
 
-function App() {
+export default function App() { // default export
   return (
-    <div class="parent">
-      <h1 class="greeting" id="one">Hello </h1>
-      <h2 class="question" id="two">How are you</h2>
-    </div>
+    <>
+      <Header />
+      <Header />
+      <UserProfile name="Mahendra" age="25" place="Delhi" />
+      <UserProfile name="Deepak" age="No idea" place="BLR" />
+      <UserProfile name="Vinay" age="30" place="Tamil Nadu" />
+      <Footer />
+      <Footer />
+    </>
   );
 }
 
-export default App;
+
+// export function AnotherApp() { // named export
+//   return(
+//     <h1>I am another function or piece of code</h1>
+//   )
+// }
+
+
