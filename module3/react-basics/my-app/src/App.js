@@ -4,11 +4,13 @@ import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
 import Counter from './components/Counter';
 import Product from './components/Product';
+import Form from './components/Form';
 
 export default function App() { // default export
   return (
     <>
-      <Product />
+      <Form />
+      {/* <Product /> */}
       {/* <Header />
       <Header />
       <Counter />
