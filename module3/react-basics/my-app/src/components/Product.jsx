@@ -14,6 +14,8 @@ export default function Product(){
              })   
             }
         </>
+        
+        //output of map similiar to this and it shows on UI
         // [
         // <div>{products[0].name}</div>,
         // <div>{products[1].name}</div>,
