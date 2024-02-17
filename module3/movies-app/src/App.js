@@ -1,17 +1,19 @@
 
 import './App.css';
 import Home from './Components/Home';
+import NavBar from './Components/NavBar';
+import WatchList from './Components/WatchList';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    // <>
-    
-    //   <h1 className="text-3xl font-bold underline">
-    //     Hello world!
-    //   </h1>
-    // </>
-    <Home></Home>
-      
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/watchlist' element={<WatchList/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
