@@ -1,16 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Pagination from './Pagination'
+import MovieCard from './MovieCard'
+import axios from 'axios';
 
 function TrendingMovies() {
+  const [movies,setMovies] = useState([]);
+  
+  useEffect(()=>{
+    axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=52f9641e3d436fb1f176a6290b5a3150')
+    .then(function (response) {
+      setMovies(response.data.results)
+    })
+  },[])
+
+  // console.log(movies);
+  if(movies.length === 0){
+    return<>...Loading</>
+  }
+
   return (
     <>
       <div className='text-center text-2xl font-bold m-4'>Trending Movies</div>
       <div className='mx-2 flex flex-wrap justify-around gap-4'>
-        <div className="flex justify-center items-end h-80 w-56 rounded-lg overflow-hidden bg-[url('https://knightedgemedia.com/wp-content/uploads/2022/11/john-wick-4-theatrical-trailer-banner1.jpg')] bg-cover bg-no-repeat">
-          <div className='text-white py-0.5 bg-slate-950/50 w-full text-center'>
-            John Wick
-          </div>
-        </div>
+        {
+          movies.map((movieObj)=>{
+            return <MovieCard 
+                      key={movieObj.id}
+                      title={movieObj.title} 
+                      poster_path={movieObj.poster_path}
+                   />
+          })
+        }
       </div>
+      <Pagination/>
     </>
   )
 }

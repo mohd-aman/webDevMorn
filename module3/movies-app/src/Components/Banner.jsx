@@ -10,17 +10,19 @@ function Banner() {
       let movies = response.data.results;
       // console.log(movies);
       let randomMovie = movies[Math.floor(Math.random()*20)]
-      console.log(randomMovie);
+      // console.log(randomMovie);
       setMovieObj(randomMovie);
     })
-  },[])
+  },[]) // execute in only mounting phase
 
   if(movieObj.backdrop_path === undefined){
     return<>...Loading</>
   }
 
   return (
-    <div className={`flex justify-center items-end h-[70vh] bg-[url('https://image.tmdb.org/t/p/original${movieObj.backdrop_path}')] bg-cover bg-no-repeat`}>
+    <div className="h-[70vh] bg-cover bg-center flex items-end "
+          style={{backgroundImage:`url(https://image.tmdb.org/t/p/original${movieObj.backdrop_path})`}}
+    >
       <div className='text-white py-1 bg-slate-950/50 w-full text-center'>
         {movieObj.title}
       </div>

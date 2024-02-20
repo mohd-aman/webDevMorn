@@ -1,6 +1,5 @@
 import React from 'react'
 import Banner from './Banner'
-import Pagination from './Pagination'
 import TrendingMovies from './TrendingMovies'
 
 function Home() {
@@ -8,7 +7,6 @@ function Home() {
         <>
             <Banner></Banner>
             <TrendingMovies></TrendingMovies>
-            <Pagination></Pagination>
         </>
 
         // Banner Section
