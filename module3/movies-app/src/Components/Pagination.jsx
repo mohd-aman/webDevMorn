@@ -1,16 +1,5 @@
-import React, { useState } from 'react'
 
-function Pagination() {
-  const [pageNo,setPageNo] = useState(1);
-
-  const handleNext = function(){
-    setPageNo(pageNo+1);
-  }
-
-  const handlePrev = function(){
-    if(pageNo>1)
-      setPageNo(pageNo-1);
-  }
+function Pagination({pageNo,handleNext,handlePrev}) {
 
   return (
     <div className='text-2xl flex gap-8 bg-slate-400 m-2 p-4 justify-center	'>
