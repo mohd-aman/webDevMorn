@@ -6,23 +6,11 @@ import axios from 'axios';
 function TrendingMovies({watchList,
                         setWatchList,
                         handleAddToWatchList,
-                        handleRemoveFromWatchList}) {
+                        handleRemoveFromWatchList,
+                        pageNo,
+                        handleNext,
+                        handlePrev}) {
   const [movies,setMovies] = useState([]);
-  const [pageNo,setPageNo] = useState(1);
-
-  const handleNext = function(){
-    setPageNo(pageNo+1);
-  }
-
-  const handlePrev = function(){
-    if(pageNo>1)
-      setPageNo(pageNo-1);
-  }
-
-  useEffect(()=>{
-    let watchListFromLocalStorage = JSON.parse(localStorage.getItem('watchList'));
-    setWatchList(watchListFromLocalStorage);
-  },[]) // it will work only on mounting phase
   
   useEffect(()=>{
     axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=52f9641e3d436fb1f176a6290b5a3150&page=${pageNo}`)

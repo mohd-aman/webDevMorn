@@ -5,7 +5,10 @@ import TrendingMovies from './TrendingMovies'
 function Home({watchList,
                setWatchList,
                handleAddToWatchList,
-               handleRemoveFromWatchList}) {
+               handleRemoveFromWatchList,
+               pageNo,
+               handleNext,
+               handlePrev}) {
     return (
         <>
             <Banner></Banner>
@@ -14,6 +17,9 @@ function Home({watchList,
                 setWatchList={setWatchList}
                 handleAddToWatchList={handleAddToWatchList}
                 handleRemoveFromWatchList={handleRemoveFromWatchList}
+                pageNo={pageNo}
+                handleNext={handleNext}
+                handlePrev={handlePrev}
             ></TrendingMovies>
         </>
 
