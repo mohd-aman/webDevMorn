@@ -8,7 +8,7 @@ export default function MovieCard({title,
     handleRemoveFromWatchList}){
 
     return(
-        <div className="flex flex-col justify-between hover:scale-[0.9] duration-300 justify-center items-end h-80 w-56 rounded-lg overflow-hidden bg-cover bg-no-repeat"
+        <div className="flex flex-col justify-between hover:scale-[0.9] hover:rotate-3 duration-300 justify-center items-end h-80 w-56 rounded-lg overflow-hidden bg-cover bg-no-repeat"
         style={{backgroundImage:`url(https://image.tmdb.org/t/p/original${poster_path})`}}
         >
             { watchlist.includes(id)?
