@@ -2,11 +2,19 @@ import React from 'react'
 import Banner from './Banner'
 import TrendingMovies from './TrendingMovies'
 
-function Home() {
+function Home({watchList,
+               setWatchList,
+               handleAddToWatchList,
+               handleRemoveFromWatchList}) {
     return (
         <>
             <Banner></Banner>
-            <TrendingMovies></TrendingMovies>
+            <TrendingMovies
+                watchList={watchList}
+                setWatchList={setWatchList}
+                handleAddToWatchList={handleAddToWatchList}
+                handleRemoveFromWatchList={handleRemoveFromWatchList}
+            ></TrendingMovies>
         </>
 
         // Banner Section

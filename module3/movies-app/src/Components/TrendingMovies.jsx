@@ -3,24 +3,12 @@ import Pagination from './Pagination'
 import MovieCard from './MovieCard'
 import axios from 'axios';
 
-function TrendingMovies() {
+function TrendingMovies({watchList,
+                        setWatchList,
+                        handleAddToWatchList,
+                        handleRemoveFromWatchList}) {
   const [movies,setMovies] = useState([]);
   const [pageNo,setPageNo] = useState(1);
-  const [watchlist,setWatchList] = useState([]);
-
-  const handleAddToWatchList = (id)=>{
-    const newWatchList = [...watchlist];
-    newWatchList.push(id);
-    localStorage.setItem('watchList',JSON.stringify(newWatchList));
-    setWatchList(newWatchList);
-  }
-  const handleRemoveFromWatchList = (id)=>{
-    const newWatchList = watchlist.filter((movieId)=>{
-      return id!==movieId;
-    })
-    localStorage.setItem('watchList',JSON.stringify(newWatchList));
-    setWatchList(newWatchList);
-  }
 
   const handleNext = function(){
     setPageNo(pageNo+1);
@@ -56,10 +44,10 @@ function TrendingMovies() {
           movies.map((movieObj)=>{
             return <MovieCard 
                       key={movieObj.id}
-                      id={movieObj.id}
+                      movieObj={movieObj}
                       title={movieObj.title} 
                       poster_path={movieObj.poster_path}
-                      watchlist={watchlist}
+                      watchList={watchList}
                       handleAddToWatchList={handleAddToWatchList}
                       handleRemoveFromWatchList={handleRemoveFromWatchList}
                    />
