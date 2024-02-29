@@ -1,5 +1,7 @@
 import './App.css';
-import Family from './prop_drill/Family';
+import Family1 from './prop_drill/Family'; //prop drilling
+import Family2 from './contextComponent/Family'; // context 
+import { FamilyContext } from './contextComponent/FamilyContext';
 
 function App() {
 
@@ -17,8 +19,11 @@ function App() {
   }
 
   return (
-    <Family info={familyInfo}/>
-  );
+    // <Family1 info={familyInfo}/>
+      <FamilyContext.Provider value={familyInfo}>
+        <Family2/>
+      </FamilyContext.Provider>
+    );
 }
 
 export default App;
