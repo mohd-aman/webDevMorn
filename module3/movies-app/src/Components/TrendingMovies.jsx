@@ -5,9 +5,7 @@ import axios from 'axios';
 import { MovieContext } from './MovieContext';
 
 function TrendingMovies() {
-  const {pageNo, watchList, 
-    handleAddToWatchList, 
-    handleRemoveFromWatchList} = useContext(MovieContext);
+  const {pageNo} = useContext(MovieContext);
   const [movies,setMovies] = useState([]);
   
   useEffect(()=>{
@@ -33,9 +31,6 @@ function TrendingMovies() {
                       movieObj={movieObj}
                       title={movieObj.title} 
                       poster_path={movieObj.poster_path}
-                      watchList={watchList}
-                      handleAddToWatchList={handleAddToWatchList}
-                      handleRemoveFromWatchList={handleRemoveFromWatchList}
                    />
           })
         }

@@ -1,11 +1,14 @@
+import { useContext } from "react";
+import { MovieContext } from "./MovieContext";
 
 
 export default function MovieCard({title, 
     movieObj,
-    poster_path,
-    watchList,
+    poster_path}){
+    
+    const  {watchList,
     handleAddToWatchList,
-    handleRemoveFromWatchList}){
+    handleRemoveFromWatchList} = useContext(MovieContext);
 
     function isContain(movieObj){
         for(let i=0;i<watchList.length;i++){
