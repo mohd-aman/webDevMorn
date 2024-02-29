@@ -1,5 +1,9 @@
+import { useContext } from "react"
+import { MovieContext } from "./MovieContext"
 
-function Pagination({pageNo,handleNext,handlePrev}) {
+function Pagination() {
+
+  const {pageNo, handleNext,handlePrev} = useContext(MovieContext)
 
   return (
     <div className='text-2xl flex gap-8 bg-slate-400 m-2 p-4 justify-center	'>

@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Pagination from './Pagination'
 import MovieCard from './MovieCard'
 import axios from 'axios';
+import { MovieContext } from './MovieContext';
 
-function TrendingMovies({watchList,
-                        setWatchList,
-                        handleAddToWatchList,
-                        handleRemoveFromWatchList,
-                        pageNo,
-                        handleNext,
-                        handlePrev}) {
+function TrendingMovies() {
+  const {pageNo, watchList, 
+    handleAddToWatchList, 
+    handleRemoveFromWatchList} = useContext(MovieContext);
   const [movies,setMovies] = useState([]);
   
   useEffect(()=>{
@@ -42,10 +40,7 @@ function TrendingMovies({watchList,
           })
         }
       </div>
-      <Pagination pageNo={pageNo}
-                  handleNext={handleNext}
-                  handlePrev={handlePrev}
-      />
+      <Pagination />
     </>
   )
 }
