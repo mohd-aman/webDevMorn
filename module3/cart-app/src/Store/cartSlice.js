@@ -7,8 +7,8 @@ const cartSlice = createSlice({
         addToCart(state,action){ // actions
             return [...state, action.payload]
         },
-        removeFromCart(){ //actions
-            
+        removeFromCart(state, action){ //actions
+            return state.filter((item)=>item.id!==action.payload)
         }
     }
 })
