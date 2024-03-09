@@ -16,7 +16,7 @@ export default function TodoReducer(){
         dispatch({
             type:"HANDLE_TASK",
             field:e.target.name,
-            paylod:e.target.value  
+            payload:e.target.value  
         })
     }
     
@@ -28,7 +28,7 @@ export default function TodoReducer(){
               I want to do <input type="text" name="title" onChange={handleTask}/> by{" "}
               <input type="date" name="by" onChange={handleTask} />
               <button className="wishBtn" 
-                onClick={()=> dispatchList({type:"ADD_TASK",paylod:state})}>Add a Task</button>
+                onClick={()=> dispatchList({type:"ADD_TASK",payload:state})}>Add a Task</button>
             </div>
             <ul>
               {list.map((item) => (
@@ -36,9 +36,9 @@ export default function TodoReducer(){
                   <span style={{ textDecoration: item.isDone ? "line-through" : "" }}>
                     <strong>{item.title}</strong> is due by {item.by}</span>
                   <span><TiTick size={24} 
-                    onClick={() => dispatchList({type:"DONE_TASK",paylod:item.id})} /></span>
+                    onClick={() => dispatchList({type:"DONE_TASK",payload:item.id})} /></span>
                   <span><TiTrash size={24} 
-                    onClick={() => dispatchList({type:"REMOVE_TASK",paylod:item.id}) }/></span>
+                    onClick={() => dispatchList({type:"REMOVE_TASK",payload:item.id}) }/></span>
                 </li>
               ))}
             </ul>
