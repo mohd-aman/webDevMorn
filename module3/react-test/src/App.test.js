@@ -16,4 +16,8 @@ test('check for four list item',()=>{
 
 test('check for hello heading',()=>{
   render(<App/>)
+  // const headingElem = screen.getByText('Hello');
+  // expect(headingElem).toBeInTheDocument();
+  const headingElem = screen.getByTestId('test_id_1');
+  expect(headingElem).toBeInTheDocument();
 })
