@@ -4,6 +4,31 @@ const express = require('express');
 //create an express application
 const app = express();
 
+const loggerMiddleware = (req,res,next)=>{
+    // console.log("I am a logger middleware");   
+    console.log(req.ip,req.hostname,req.method, req.url);
+    const date = new Date();
+    console.log(date);
+    next(); 
+}
+
+const auth = (req,res,next)=>{
+    console.log(req.query);
+    const password = req.query.pass;
+    console.log(password);
+    if(password === '123'){
+        next();
+    }else{
+        res.send("You are not the authorized person for the requested url");
+    }
+}
+
+app.use(express.static('public')) // it will serve index.html file on the '/' get request
+
+//register loggerMiddleware globally for all the routes
+app.use(loggerMiddleware);
+// app.use(auth);
+
 // define a route
 app.get('/', (req, res) => {
     // res.send('Hello World!')
@@ -27,7 +52,7 @@ app.get('/about',(req,res)=>{
     res.send("This is about page!");
 })
 
-app.post('/data',(req,res)=>{
+app.post('/data',auth,(req,res)=>{
     res.send("Received a POST req");
 })
 
