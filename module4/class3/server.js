@@ -34,6 +34,33 @@ app.post('/products',(req,res)=>{
     res.send("Product added");
 })
 
+//delete a product
+app.delete('/products/:id',(req,res)=>{
+    const id = req.params.id
+    const productIndex = products.findIndex((elem)=>elem.id == id);
+    products.splice(productIndex,1);
+    res.send("Product deleted");
+})
+
+//updating the existing key value pair, either adding new or deleting existing
+app.put("/products/:id",(req,res)=>{
+    const id = req.params.id;
+    const productIndex = products.findIndex((elem)=>elem.id == id);
+    products[productIndex] = req.body;
+    console.log(req.body);
+    res.send("product updated")
+})
+
+//updating the existing value corresponding the the key
+app.patch('/products/:id',(req,res)=>{
+    const id = req.params.id;
+    const productIndex = products.findIndex((elem)=>elem.id == id);
+    const product = products[productIndex];
+    products.splice(productIndex,1,{...product,...req.body})
+    res.send("Updated product")
+})
+
+
 app.listen(PORT,()=>{
     console.log(`Server is listening at ${PORT}`)
 })
