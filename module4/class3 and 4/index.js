@@ -36,4 +36,12 @@ async function createCourse(){
     console.log(courseCreated);
 }
 
-createCourse();
+// createCourse();
+
+async function getCourse(){
+    // find all documents
+    const allCourse = await Course.find({creator: 'Alex'});
+    console.log(allCourse);
+}
+
+// getCourse();
