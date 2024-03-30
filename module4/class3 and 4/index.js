@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-const password = "xG7PV1E9QM4HUWAT";
-const url = "mongodb+srv://saifiamaan445:xG7PV1E9QM4HUWAT@cluster0.kdkduy1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const url = "mongodb+srv://shashwatbagaria1:ObiZgnRnOYfRtEpM@cluster0.5tshkt0.mongodb.net/"
 
 mongoose.connect(url)
 .then(()=>{
@@ -28,15 +27,16 @@ const Course = mongoose.model('Course',courseSchema);
 
 async function createCourse(){
     const course = new Course({
-        name:"React",
-        creator:"Aman",
+        name:"Backend Development",
+        creator:"Mushtaque",
         rating:5, 
+        batch_strength: 100
     })
     const courseCreated = await course.save();
     console.log(courseCreated);
 }
 
-// createCourse();
+createCourse();
 
 async function getCourse(){
     // find all documents
@@ -45,3 +45,27 @@ async function getCourse(){
 }
 
 // getCourse();
+
+// -----------------Update-------------------
+async function updateCourse(id) {
+    // find all documents
+    const course = await Course.findById(id);
+    
+    if (!course) return;
+
+    course.name = "Node.js";
+    course.creator = "Alex";
+
+    await course.save();
+}
+// updateCourse("6607630c4c90953dcf74f3bd");
+
+
+// -----------------Delete-------------------
+async function deleteCourse(id) {
+    // find all documents
+    const courseDeleted = await Course.findByIdAndDelete(id);
+    console.log(courseDeleted);
+}
+
+// deleteCourse("6607630c4c90953dcf74f3bd");
