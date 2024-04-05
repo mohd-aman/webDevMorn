@@ -63,9 +63,9 @@ router.post("/login", async (request, response) => {
     }
 
     const token = jwt.sign(
-      { userId: user._id, emailId: user.email },
-      process.env.jwt_secret,
-      { expiresIn: "1d" }
+      { userId: user._id, emailId: user.email }, // payload
+      process.env.jwt_secret, // Secret Key
+      { expiresIn: "1d" } // Expiry
     );
 
     response.status(200).send({
@@ -84,7 +84,7 @@ router.post("/login", async (request, response) => {
 
 router.get("/get-current-user", authMiddleware, async (req, res) => {
   try {
-    const user = User.findById(req.body.userId).select("-password");
+    const user = await User.findById(req.body.userId).select("-password");
     res.send({
       success: true,
       message: "User details fetched successfully!",
