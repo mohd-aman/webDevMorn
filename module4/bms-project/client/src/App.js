@@ -17,6 +17,7 @@ import "./stylesheets/theme.css";
 
 // Components
 import ProtectedRoute from "./components/ProtectedRoute";
+import TheatresForMovie from "./pages/TheatresForMovie";
 
 function App() {
   const { loading } = useSelector((state) => state.loaders);
@@ -50,6 +51,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/movie/:id"
+            element={
+              <ProtectedRoute>
+                <TheatresForMovie />
               </ProtectedRoute>
             }
           />
