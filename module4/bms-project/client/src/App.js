@@ -18,6 +18,7 @@ import "./stylesheets/theme.css";
 // Components
 import ProtectedRoute from "./components/ProtectedRoute";
 import TheatresForMovie from "./pages/TheatresForMovie";
+import BookShow from "./pages/BookShow";
 
 function App() {
   const { loading } = useSelector((state) => state.loaders);
@@ -51,6 +52,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/book-show/:id"
+            element={
+              <ProtectedRoute>
+                <BookShow />
               </ProtectedRoute>
             }
           />
